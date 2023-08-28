@@ -1,37 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
-    <meta name="viewport"content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Binary Tree Structure</title>
-    <link href="css/style.css"rel="stylesheet"type="text/css"/>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="tree">
-          <ul>
-            <li> <a href="#"><img src="images/1.jpg"><span>Child</span></a>
-            <ul>
-              <li><a href="#"><img src="images/2.jpg"><span>Grand Child</span></a>
+<html>
+    <head>
+        <title>Halaman User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <h1 class="text-center">
+        Struktur Organisasi
+      </h1>
+      <div class="container">
+        <div class="row">
+          <ul id="tree-data" style="display:none">
+            <li id="root">
+              Direktorat Utama
               <ul>
-                <li> <a href="#"><img src="images/3.jpg"><span>Great Grand Child</span></a> </li>
-                <li> <a href="#"><img src="images/4.jpg"><span>Great Grand Child</span></a> </li>
+                <li id="node1">
+                  Direktorat Operasi
+                </li>
+                <li id="node2">
+                 Direktorat Investasi
+                </li>
+                <li id="node3">
+                 Direktorat Umum
+                </li>
+                <li id="node4">
+                  Direktorat Keuangan
+                </li>
+                <li id="node5">
+                  Direktorat Informasi
+                </li>
               </ul>
             </li>
-            <li> <a href="#"><img src="images/5.jpg"><span>Grand Child</span></a>
-            <ul>
-              <li> <a href="#"><img src="images/6.jpg"><span>Great Grand Child</span></a> </li>
-              <li> <a href="#"><img src="images/7.jpg"><span>Great Grand Child</span></a> </li>
-              <li> <a href="#"><img src="images/8.jpg"><span>Great Grand Child</span></a> </li>
-            </ul>
-          </li>
-          <li><a href="#"><img src="images/9.jpg"><span>Grand Child</span></a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
-</body>
+          </ul>
+        <div id="tree-view"></div>  
+        <script>
+          $(document).ready(function () {
+          $("#tree-data").jOrgChart({
+            chartElement: $("#tree-view"), 
+            nodeClicked: nodeClicked
+          });
+        // lighting a node in the selection
+          function nodeClicked(node, type) {
+            node = node || $(this);
+            $('.jOrgChart .selected').removeClass('selected');
+                node.addClass('selected');
+            }
+          });
+        </script>       
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <h1 class="text-center">
+        Visi Misi
+      </h1>
+       </body>
 </html>
